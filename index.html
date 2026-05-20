@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="DA SILVA Xavier - Incident Manager / IT Coordinator - 5 ans en fintech bancaire critique" />
+  <meta name="theme-color" content="#0b0b0c" />
+
+  <title>DA SILVA Xavier - CV</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0b0c'/%3E%3Ctext x='16' y='21' font-family='ui-serif,Georgia,serif' font-size='13' fill='%23ededed' text-anchor='middle'%3EXDA%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --bg:        #0b0b0c;
+      --surface:   #131316;
+      --border:    rgba(255, 255, 255, 0.08);
+      --border-2:  rgba(255, 255, 255, 0.14);
+      --text:      #ededed;
+      --muted:     #9a9aa3;
+      --subtle:    #6b6b73;
+      --accent:    #ededed;
+      --accent-ink:#0b0b0c;
+
+      --radius:    14px;
+      --radius-sm: 8px;
+
+      --max:       880px;
+      --pad:       clamp(20px, 4vw, 32px);
+
+      --fs-hero:   clamp(2rem, 1.4rem + 2.6vw, 3rem);
+      --fs-lead:   clamp(1.05rem, 0.95rem + 0.4vw, 1.175rem);
+      --fs-body:   1rem;
+      --fs-small:  0.875rem;
+
+      --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: ui-serif, "Iowan Old Style", "Apple Garamond", Georgia,
+                    "Times New Roman", Times, serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root.auto {
+        --bg:       #fafafa;
+        --surface:  #ffffff;
+        --border:   rgba(0, 0, 0, 0.08);
+        --border-2: rgba(0, 0, 0, 0.14);
+        --text:     #111114;
+        --muted:    #5a5a63;
+        --subtle:   #8a8a92;
+        --accent:   #111114;
+        --accent-ink:#ffffff;
+      }
+    }
+
+    /* ---------- Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "ss01", "cv11", "kern";
+    }
+    img, svg, iframe, embed, object { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Layout shell ---------- */
+    .shell {
+      max-width: var(--max);
+      margin-inline: auto;
+      padding: clamp(28px, 6vw, 56px) var(--pad) clamp(48px, 8vw, 96px);
+    }
+
+    /* ---------- Top bar ---------- */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-bottom: clamp(48px, 9vw, 88px);
+      font-size: var(--fs-small);
+      color: var(--muted);
+    }
+    .topbar nav { display: flex; gap: 18px; }
+    .topbar nav a {
+      color: var(--muted);
+      transition: color .15s ease;
+    }
+    .topbar nav a:hover { color: var(--text); }
+
+    /* ---------- Hero ---------- */
+    .hero { margin-bottom: clamp(40px, 7vw, 64px); }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin: 0 0 18px;
+    }
+    .name {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: var(--fs-hero);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+    .role {
+      font-size: var(--fs-lead);
+      color: var(--muted);
+      margin: 0 0 22px;
+      max-width: 56ch;
+    }
+    .role strong { color: var(--text); font-weight: 500; }
+    .intro {
+      font-size: var(--fs-lead);
+      color: var(--text);
+      margin: 0;
+      max-width: 60ch;
+    }
+
+    /* ---------- Action row ---------- */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    /* ---------- Meta info ---------- */
+    .meta {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      font-size: var(--fs-small);
+    }
+    .meta li {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 14px;
+      align-items: baseline;
+    }
+    .meta-k {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+    .meta-v { color: var(--text); line-height: 1.5; }
+    .btn {
+      --bd: var(--border-2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--bd);
+      font-size: var(--fs-small);
+      font-weight: 500;
+      color: var(--text);
+      background: transparent;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, color .15s ease, transform .05s ease;
+      user-select: none;
+    }
+    .btn:hover { border-color: var(--text); }
+    .btn:active { transform: translateY(0.5px); }
+    .btn .icn { width: 14px; height: 14px; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* ---------- PDF viewer ---------- */
+    .doc {
+      margin-top: clamp(28px, 5vw, 48px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .doc-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-small);
+      color: var(--muted);
+    }
+    .doc-head .left { display: inline-flex; align-items: center; gap: 10px; }
+    .doc-head .dots {
+      display: inline-flex; gap: 6px;
+    }
+    .doc-head .dots i {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--border-2);
+      display: block;
+    }
+    .doc-head .file {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .doc-head a {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      border-bottom: 1px solid transparent;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .doc-head a:hover { color: var(--text); border-bottom-color: var(--text); }
+
+    .doc-frame {
+      width: 100%;
+      height: clamp(520px, 78vh, 880px);
+      border: 0;
+      background: #1e1e22;
+      display: block;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: clamp(48px, 8vw, 88px);
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: var(--fs-small);
+      color: var(--subtle);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    /* ---------- Accessibility ---------- */
+    :focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    @media (max-width: 520px) {
+      .topbar nav { gap: 14px; }
+      .actions { width: 100%; }
+      .actions .btn { flex: 1 1 auto; justify-content: center; }
+      .doc-head .file { display: none; }
+      .meta li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="shell">
+
+    <header class="topbar">
+      <nav aria-label="Liens">
+        <a href="mailto:dslv@mailbox.org">Email</a>
+        <a href="https://www.linkedin.com/in/xavierdasilva" rel="me noopener">LinkedIn</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-name">
+      <p class="eyebrow">CV · 2026</p>
+      <h1 id="hero-name" class="name">DA SILVA Xavier</h1>
+      <p class="role"><strong>Incident Manager · IT Coordinator</strong> &nbsp;·&nbsp; basé en Bretagne</p>
+      <p class="intro">
+        5 ans en exploitation d'un environnement <strong>fintech bancaire critique</strong>. Référent technique unique pour l'ensemble des équipes (R&amp;D, DevOps, Service Client, Conformité, Finance), en lien direct avec le CTO.<br>
+        À l'aise aussi bien en SSH sur une machine de production que face à une direction pour expliquer un incident ou défendre une décision d'architecture.
+      </p>
+
+      <ul class="meta">
+        <li><span class="meta-k">Services</span><span class="meta-v">Incidents N1-N3, SLA, Gestion de crise, Mise en production, Agile/Scrum</span></li>
+        <li><span class="meta-k">Sécurité</span><span class="meta-v">Gestion de vulnérabilités (CVE, Cyberwatch), Déploiement sécurisé, Segmentation, Contrôle d'accès</span></li>
+        <li><span class="meta-k">Conformité</span><span class="meta-v">DORA, RGPD, ISO 27001, PCA/PRA</span></li>
+        <li><span class="meta-k">Stack</span><span class="meta-v">Linux Debian, PostgreSQL, Automatisation IA des opérations, Jira, Confluence, Aptly, DBeaver</span></li>
+        <li><span class="meta-k">Dispo</span><span class="meta-v">Immédiate &middot; Bretagne, hybride ou full remote &middot; véhicule</span></li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">
+          <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+          </svg>
+          Ouvrir le CV
+        </a>
+        <a class="btn" href="cv.pdf" download>
+          <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+          </svg>
+          Télécharger
+        </a>
+        <a class="btn" href="mailto:dslv@mailbox.org">
+          <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+          </svg>
+          Me contacter
+        </a>
+      </div>
+    </section>
+
+    <section class="doc" aria-label="CV">
+      <div class="doc-head">
+        <span class="left">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="file">cv.pdf</span>
+        </span>
+        <a href="cv.pdf" download>Télécharger ↓</a>
+      </div>
+
+      <iframe
+        class="doc-frame"
+        src="pdfjs/web/viewer.html?file=/cv.pdf"
+        title="Aperçu du CV"
+        loading="lazy"
+        referrerpolicy="no-referrer"></iframe>
+    </section>
+
+    <footer>
+      <span>© <span id="yr">2026</span> DA SILVA Xavier</span>
+      <span>Dernière mise à jour <time datetime="2026-05">Mai 2026</time></span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
